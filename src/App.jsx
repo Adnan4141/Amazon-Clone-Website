@@ -1,14 +1,15 @@
 import './App.css'
 
+import TodoMain from './msg/TodoMain'
+
 function App() {
 
 
   return (
-    <>
-    <div className='bg-red-500'>
-       Adnan
+    <div>
+      <TodoMain/>
     </div>
-    </>
+ 
   )
 }
 
