@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { lists } from "../api/Data";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { deleteTodos } from "../redux/TodosSlics";
+
 
 const ShowTodosByCategory = () => {
   const todos = useSelector((state) => state.todosReducer.todos);
   const [showCategory, setShowCategory] = useState("");
+  const dispatch = useDispatch();
 
   const itemContains = todos.filter(
     (todo) => todo.category.toLowerCase() == showCategory.toLowerCase()
   );
-  
 
   return (
     <div className="flex border">
@@ -34,10 +37,16 @@ const ShowTodosByCategory = () => {
                   return (
                     <div
                       key={todo.todo}
-                      className="border border-l-[6px] mt-3 border-TodolightGreen p-2  text-white font-bold "
+                      className="border flex justify-between border-l-[6px] mt-3 border-TodolightGreen p-2  text-white font-bold "
                     >
                       {todo.todo}
-                      
+                      <div>
+                        
+                        <button  onClick={()=> dispatch(deleteTodos(todo.id))}
+                        className="text-white font-bold hover:text-orange-600 delay-75 transition">
+                         <DeleteIcon/>
+                        </button>
+                      </div>
                     </div>
                   );
                 }

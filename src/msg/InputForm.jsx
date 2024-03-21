@@ -20,10 +20,12 @@ const handleSubmit = (e)=>{
   category,
   todo
  }
- if(category && todo){
-   
-   dispatch(addTodos(dataObj))
-   console.log("yes")
+ if(category && todo ){
+   if(category!=="category"){
+     dispatch(addTodos(dataObj))
+   }
+  else
+      alert("Please Select Valid Category")
  }
  else 
  alert("Fillup form please")
@@ -57,9 +59,10 @@ const handleCategory = (e)=>{
 
           <select onChange={handleCategory} className="bg-TodoBlue text-white px-10 border rounded-md font-bold border-gray-100">
             <option
-              className="text-white font-bold tracking-wider"
+              className="text-white text-gray-600 font-bold tracking-wider"
               defaultChecked 
-              disabled > Categories
+              value="category"
+              > Categories
                 </option>
 
                 {

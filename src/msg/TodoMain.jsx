@@ -11,7 +11,7 @@ const TodoMain = () => {
  
 
   return (
-    <div className="w-full   px-5 bg-[#53C6F9]">
+    <div className="max-w-6xl mx-auto  px-5 ">
      { todos.length>0 && 
       <div className="w-full bg-TodoBlue p-10 ">
         <ShowTodosByCategory />
@@ -28,7 +28,7 @@ const TodoMain = () => {
         }
 
         {todos.length > 0 ? (
-          <div className="text-center">
+          <div className="text-center mt-5">
             <button
               onClick={() => dispatch(resetTodos())}
               className="border border-gray-500 px-5 py-1 text-orange-400 font-semibold tracking-wider"

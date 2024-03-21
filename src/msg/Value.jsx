@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { deleteTodos } from '../redux/TodosSlics';
