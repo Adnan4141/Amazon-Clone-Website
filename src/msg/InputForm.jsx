@@ -9,7 +9,7 @@ const InputForm = () => {
  const dispatch = useDispatch();
 const [todo,setTodo]  = useState("")
 const [category,setCategory] = useState("")
-console.log(todo)
+
 
 
 
@@ -49,17 +49,17 @@ const handleCategory = (e)=>{
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="w-full flex gap-8  bg-TodoBlue">
+        <div className="w-full flex flex-col md:flex-row gap-2 md:gap-8  bg-TodoBlue">
           <input
            onChange={handleTodo}
-            className="w-3/4 bg-TodoBlue border text-white border-gray-100 focus:border focus:border-orange-500 rounded-md py-2 px-5 placeholder:text-gray-100"
+            className="md:w-3/4 text-center md:text-start bg-TodoBlue border text-white border-gray-100 focus:border focus:border-orange-500 rounded-md py-2 px-5 placeholder:text-gray-100"
             placeholder="Enter your Todo"
             type="text"
           />
 
-          <select onChange={handleCategory} className="bg-TodoBlue text-white px-10 border rounded-md font-bold border-gray-100">
+          <select onChange={handleCategory} className="bg-TodoBlue text-white px-10 py-2 md:py-0 border rounded-md font-bold border-gray-100">
             <option
-              className="text-white text-gray-600 font-bold tracking-wider"
+              className="text-center md:text-start  text-gray-600 font-bold tracking-wider"
               defaultChecked 
               value="category"
               > Categories

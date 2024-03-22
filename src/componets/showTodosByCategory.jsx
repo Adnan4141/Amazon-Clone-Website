@@ -3,6 +3,7 @@ import { lists } from "../api/Data";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteTodos } from "../redux/TodosSlics";
+import {  easeOut, motion } from "framer-motion"
 
 
 const ShowTodosByCategory = () => {
@@ -15,7 +16,7 @@ const ShowTodosByCategory = () => {
   );
 
   return (
-    <div className="flex border">
+    <div className="flex flex-col round md:flex-row border">
       <div className="flex flex-col text-white border-r border-gray-400">
         {lists.map((list) => (
           <button
@@ -28,16 +29,18 @@ const ShowTodosByCategory = () => {
         ))}
       </div>
 
+
+
       {showCategory.length > 0 ? (
-        <div className="w-full border border-gray-200 px-6  mx-0 shadow-2xl  shadow-blue-600 ">
+        <div className="w-full border border-gray-200 px-6 h-42 max-h-44  mx-0 shadow-2xl  shadow-blue-600 overflow-y-scroll scrollbar-hide">
           {itemContains && (
-            <div className="w-full">
+            <div className="w-full ">
               {todos.map((todo) => {
                 if (todo.category.toLowerCase() == showCategory.toLowerCase()) {
                   return (
                     <div
                       key={todo.todo}
-                      className="border flex justify-between border-l-[6px] mt-3 border-TodolightGreen p-2  text-white font-bold "
+                      className="border flex justify-between border-l-[6px] my-2 border-TodolightGreen p-2  text-white font-bold "
                     >
                       {todo.todo}
                       <div>
@@ -53,20 +56,24 @@ const ShowTodosByCategory = () => {
               })}
             </div>
           )}
+     
 
           {itemContains.length < 1 && (
             <div className="w-full border border-gray-200 p-6 my-10 mx-3 shadow-lg  shadow-blue-800 ">
-              <div
+              <motion.div
+                initial={{y:-50,opacity:0}}
+                animate={{y:1,opacity:1}}
+                transition={{delay:0.0,duration:1,ease:easeOut}}
                 className="  font-bold text-TodoYellow text-center
         "
               >
                 {showCategory} todo list is Empty!
-              </div>
+              </motion.div>
             </div>
           )}
         </div>
       ) : (
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center min-h-32 justify-center">
           <p className="text-TodolightGreen font-bold">
             Click on the tab to choose your todos category
           </p>

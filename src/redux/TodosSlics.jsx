@@ -14,7 +14,9 @@ import uuid4 from "uuid4";
             category:"Business",
             todo:"Daraz Website",
         }
-    ]
+    ],
+    
+    
  }
 
  export const todosSlice  = createSlice({
@@ -37,6 +39,7 @@ import uuid4 from "uuid4";
         resetTodos:(state)=>{
             state.todos = []
         }
+      
 
 
     }
