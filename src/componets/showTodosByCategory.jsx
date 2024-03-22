@@ -73,7 +73,7 @@ const ShowTodosByCategory = () => {
           )}
         </div>
       ) : (
-        <div className="w-full flex items-center min-h-32 justify-center">
+        <div className="w-full flex items-center text-sm md:text-lg text-center min-h-32 justify-center">
           <p className="text-TodolightGreen font-bold">
             Click on the tab to choose your todos category
           </p>

@@ -5,19 +5,24 @@ import Value from "./Value";
 import { resetTodos } from "../redux/TodosSlics";
 import ShowTodosByCategory from "./../componets/showTodosByCategory";
 import { easeOut, motion } from "framer-motion";
-import BasicModal from "../componets/Modal";
-import { useState } from "react";
-import * as React from 'react';
+import { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 
 const TodoMain = () => {
+
+  
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todosReducer.todos);
-
+  
+  useEffect(() => {
+     
+    localStorage.setItem('todos', JSON.stringify(todos));
+    
+   }, [todos])
+   
   const [open, setOpen] =useState(false); 
   const handleOpen = () => setOpen(false);
   const handleClose = () => setOpen(false);
@@ -88,8 +93,6 @@ const TodoMain = () => {
         <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
         <Box  sx={style} 
         className=" bg-TodoBlue text-red-700 font-semibold text-xl tracking-wides rounded-md

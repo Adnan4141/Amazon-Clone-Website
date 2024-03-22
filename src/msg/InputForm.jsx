@@ -57,24 +57,25 @@ const handleCategory = (e)=>{
             type="text"
           />
 
-          <select onChange={handleCategory} className="bg-TodoBlue text-white px-10 py-2 md:py-0 border rounded-md font-bold border-gray-100">
-            <option
-              className="text-center md:text-start  text-gray-600 font-bold tracking-wider"
-              defaultChecked 
-              value="category"
-              > Categories
-                </option>
+<select
+  onChange={handleCategory}
+  className="bg-TodoBlue appearance-none  flex items-center justify-center text-white px-4 py-2 md:px-10 md:py-2 border rounded-md font-bold border-gray-100"
+>
+  <option
+    className="text-center md:text-left text-gray-600 font-bold tracking-wider"
+    defaultChecked
+    value="category"
+  >
+    Categories
+  </option>
+  {lists.map((list) => (
+    <option key={list.value} className="text-white md:text-left text-center font-bold tracking-wider">
+      {list.title}
+    </option>
+  ))}
+</select>
 
-                {
-                    lists.map((list)=>(
-                        <option key={list.value}
-              className="text-white font-bold tracking-wider"
-                > {list.title}
-                </option>
-                    ))
-                }
-            
-          </select>
+
         </div>
 
         <div className="w-full my-3">
